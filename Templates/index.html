@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="static/styles.css">
+
+    <title>Go Web</title>
+</head>
+
+<body>
+<div class="header">
+    <h1>Bienvenido a Go Web</h1>
+</div>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Amigos</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.Id}}</td>
+            <td>{{.Nombre}}</td>
+            <td>{{.Apellido}}</td>
+            <td>{{.Edad}}</td>
+            <td>
+                {{if .Amigos}}
+                    <ul>
+                        {{range .Amigos}}
+                        <li>{{.Nombre}} {{.Apellido}}</li>
+                        {{end}}
+                    </ul>
+                {{else}}
+                    <p>No tiene amigos</p>
+                {{end}}
+            </td>
+        </tr>
+        {{end}}
+    </table>
+</div>
+
+<button class="button" onclick="toggleDarkMode()">Cambiar Modo</button>
+
+<div class="footer">
+    Joshep Mateo Granada - 160004314<br>
+    Go
+</div>
+
+<script>
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+</script>
+
+</body>
+</html>
